@@ -12,7 +12,7 @@ script:
   - npm run unit.test.coverage
   - npm run ui.test
 
-addons:
+ addons:
   apt:
     packages:
     - libgconf-2-4
