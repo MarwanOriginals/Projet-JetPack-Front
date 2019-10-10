@@ -1,6 +1,7 @@
 const appConfig = require('./app.config');
 const JetpackService = require('./src/Service/Api/JetpackApi');
 const HttpClient = require('./src/HttpClient');
+const Jetpack = require('./src/Entity/Jetpack');
 
 const httpClient = new HttpClient(appConfig.apiUrl);
 const jetpackService = new JetpackService(httpClient);
@@ -21,4 +22,17 @@ jetpackService.getJetpacks().then(jetpacks => {
     });
 
     document.getElementById('jetpacks').innerHTML = html;
+
+    document.getElementById("add-button").onclick = function(){
+      document.location.href = "./create.html";
+    };
 });
+
+
+/*document.getElementById('save').onclick = function(){
+  let jetpack = new Jetpack()
+  jetpack.name=document.getElementById('name').value;
+  jetpack.image=document.getElementById('image').value;
+
+  jetpackService.save(jetpack);
+}*/
