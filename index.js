@@ -29,7 +29,7 @@ jetpackService.getJetpacks().then(jetpacks => {
 });
 
 
-/*document.getElementById('save').onclick = function(){
+/*/document.getElementById('save').onclick = function(){
   let jetpack = new Jetpack()
   jetpack.name=document.getElementById('name').value;
   jetpack.image=document.getElementById('image').value;
