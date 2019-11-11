@@ -27,6 +27,9 @@ document.getElementById("search-main-button").onclick = function(){
     document.getElementById('jetpacks-container').style.display = 'none';
     document.getElementById('add-form').style.display = 'none';
     document.getElementById('search-form').style.display = 'block';
+
+    document.getElementById('startDate').defaultValue = new Date().toJSON().slice(0,10);
+    document.getElementById('endDate').defaultValue = new Date().toJSON().slice(0,10);
 }
 
 /*
