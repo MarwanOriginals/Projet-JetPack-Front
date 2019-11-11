@@ -19,6 +19,7 @@ document.getElementById("list-main-button").onclick = function(){
     document.getElementById('add-form').style.display = 'block';
     document.getElementById('search-form').style.display = 'none';
     document.getElementById('bookings-container').style.display = 'none';
+    document.getElementById('presentation').style.display = 'none';
 }
 document.getElementById("search-main-button").onclick = function(){
     document.getElementById('button1').classList.remove("active");
@@ -27,6 +28,7 @@ document.getElementById("search-main-button").onclick = function(){
     document.getElementById('jetpacks-container').style.display = 'none';
     document.getElementById('add-form').style.display = 'none';
     document.getElementById('search-form').style.display = 'block';
+    document.getElementById('presentation').style.display = 'none';
 
     document.getElementById('startDate').defaultValue = new Date().toJSON().slice(0,10);
     document.getElementById('endDate').defaultValue = new Date().toJSON().slice(0,10);
@@ -36,6 +38,8 @@ document.getElementById("search-main-button").onclick = function(){
  * Page 1 : liste des jetpacks et ajout d'un jetpack
  */
 jetpackService.getJetpacks().then(jetpacks => {
+
+    // Affichage de la liste des Jetpacks
     let html =  '';
     jetpacks.forEach((jetpack) => {
         jetpacksArray.push(jetpack);
@@ -52,20 +56,33 @@ jetpackService.getJetpacks().then(jetpacks => {
             '</div>'
 
     });
-
     document.getElementById('jetpacks').innerHTML = html;
 
+    // Ajout d'un Jetpack dans la liste
     document.getElementById("add-button").onclick = function(){
-  
-  
-      let jetpack = new Jetpack()
-      jetpack.name = document.getElementById('name').value;
-      jetpack.image = document.getElementById('image').value;
-      jetpackService.save(jetpack);
-      jetpacksArray.push(jetpack);
+        let jetpack = new Jetpack()
+        jetpack.name = document.getElementById('name').value;
+        jetpack.image = document.getElementById('image').value;
 
-      console.log(window.location.href);
-      let html =
+        // Gestion des entrées du formulaire
+        if (jetpack.name == "" || jetpack.name == null){
+            document.getElementById('name').style = "background-color: #FFBE9D;"
+        } else {
+            document.getElementById('name').style = "background-color: #FFFFFF;"
+        }
+        if (jetpack.image == "" || jetpack.image == null){
+            document.getElementById('image').style = "background-color: #FFBE9D;"
+        } else {
+            document.getElementById('image').style = "background-color: #FFFFFF;"
+        }
+
+        if (jetpack.name && jetpack.image) {
+
+            jetpackService.save(jetpack);
+            jetpacksArray.push(jetpack);
+
+            console.log(window.location.href);
+            let html =
                 '<div class="col-md-4">\n' +
                 '<div class="card mb-4 shadow-sm" style="width: 18rem;">\n' +
                 '  <img src="'+ jetpack.image +'" class="card-img-top" alt="...">\n' +
@@ -75,11 +92,11 @@ jetpackService.getJetpacks().then(jetpacks => {
                 '  </div>\n' +
                 '</div>' +
                 '</div>'
-    
-        console.log(html);
-        document.getElementById('jetpacks').innerHTML += html;
+        
+            console.log(html);
+            document.getElementById('jetpacks').innerHTML += html;
+        }
     }
-
 });
 
 /*

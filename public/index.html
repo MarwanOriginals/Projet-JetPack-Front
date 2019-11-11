@@ -5,13 +5,13 @@
     <title>Jetpacks Distruptif</title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="bg-dark">
+<body class="bg-secondary">
     <div class="container">
-        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded shadow-sm">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-dark rounded shadow-sm">
             <img class="mr-3" src="./images/favicon.jpg" alt="" width="60" height="60">
             <div class="lh-100">
                 <h1 class="mb-0 text-danger lh-100">Réservation de Jetpacks</h1>
-                <small>Projet distruptif</small>
+                <a href="index.html"><small>Projet distruptif</small></a>
             </div>
         </div>
 
@@ -27,6 +27,17 @@
 
     <hr>
 
+    <div class="container" id="presentation">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+            <div class="px-0">
+                <h1 class="display-3 font-italic">Bienvenue dans le Projet distruptif</h1>
+                <p class="lead my-3">Grace à la coopération de cinq merveilleux étudiants de l'ENSIIE vous aurez ici la possibilité de commander/réserver des Jetpacks pour votre utilisation personnelle !</p>
+                <p class="lead mb-0 text-warning font-weight-bold">Auteurs, développeurs, ingénieurs, prophètes et créateurs de génie :</p>
+                <small class="text-warning">Frescinel Bart - Marwan Guernoug - Mike Malecot - Nicolas Charlon - Yoan Boiteux</small>
+            </div>
+        </div>
+    </div>
+
     <div class="container" id="jetpacks-container" style="display: none">
         <div class="row" id="jetpacks"></div>
     </div>
@@ -34,10 +45,10 @@
     <div class="container" id="add-form" style="display: none">
         <div class="card" style="width: 18rem;">
             <div>Nom du jetpack :
-                <input type="text" name="name" id="name"/>
+                <input type="text" placeholder="ex : Jetpack Fortnite" name="name" id="name"/>
             </div>
             <div>Image du jetpack :
-                <input type="text" name="image" id="image"/>
+                <input type="text" placeholder="url de l'image" name="image" id="image"/>
             </div>
             <div class="card-body">
                 <button type="button" class="btn btn-outline-success btn-lg" id="add-button">Ajouter</button>
