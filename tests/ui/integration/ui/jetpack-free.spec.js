@@ -22,22 +22,16 @@ context('Jetpack search', () => {
         cy.get("#bookings").contains("Jetpack JackTalior\n")
     })
 
-    it('Search all Jetpacks', () => {
+    it('Search all Jetpacks - no change date', () => {
     	cy.contains('Réserver un Jetpack').click()
         cy.get('#bookings-container').should('have.css', 'display', 'none')
-
-        cy.contains('Date de debut :')
-        cy.get('#startDate').type('2019-12-10')
-
-        cy.contains('Date de fin :')
-        cy.get('#endDate').type('2019-12-25')
 
         cy.contains('Rechercher').click()
         cy.get('#bookings-container').should('not.have.css', 'display', 'none')
     	cy.get("#bookings").children().should('have.length', 2)
     })
 
-    it('Create a Jetpack and search all Jetpacks', () => {
+    it('Create a Jetpack and search them Jetpacks', () => {
     	cy.contains('Liste des Jetpacks').click()
         cy.get('#jetpacks-container').should('not.have.css', 'display', 'none')
         
@@ -51,10 +45,6 @@ context('Jetpack search', () => {
     	cy.contains('Réserver un Jetpack').click()
     	cy.get('#search-form').should('not.have.css', 'display', 'none')
 
-        cy.contains('Date de debut :')
-        cy.get('#startDate').type('2019-12-10')
-        cy.contains('Date de fin :')
-        cy.get('#endDate').type('2019-12-25')
         cy.contains('Rechercher').click()
         cy.get('#bookings-container').should('not.have.css', 'display', 'none')
     	cy.get("#bookings").children().should('have.length', 3)
