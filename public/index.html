@@ -2,25 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Jetpacks Distruptif</title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <div class="container" id="jetpacks">
-
-    </div>
+<body class="bg-dark">
     <div class="container">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <button type="button" class="btn btn-success btn-lg" id="add-button">Ajouter</button>
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded shadow-sm">
+            <img class="mr-3" src="./images/favicon.jpg" alt="" width="60" height="60">
+            <div class="lh-100">
+                <h1 class="mb-0 text-danger lh-100">Réservation de Jetpacks</h1>
+                <small>Projet distruptif</small>
             </div>
+        </div>
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-info" id="button1">
+                <input type="radio" name="options" id="list-main-button" autocomplete="off" checked> Liste des Jetpacks
+            </label>
+            <label class="btn btn-info" id="button2">
+                <input type="radio" name="options" id="search-main-button" autocomplete="off"> Réserver un Jetpack
+            </label>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container" id="jetpacks-container" style="display: none">
+        <div class="row" id="jetpacks"></div>
+    </div>
+
+    <div class="container" id="add-form" style="display: none">
+        <div class="card" style="width: 18rem;">
             <div>Nom du jetpack :
                 <input type="text" name="name" id="name"/>
             </div>
             <div>Image du jetpack :
                 <input type="text" name="image" id="image"/>
             </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-outline-success btn-lg" id="add-button">Ajouter</button>
+            </div>
         </div>
+    </div>
+
+    <div class="container" id="search-form" style="display: none">
+        <div class="card" >
+            <div>Date de debut :
+                <input type="date" name="startDate" id="startDate"/>
+            </div>
+            <div>Date de fin :
+                <input type="date" name="endDate" id="endDate"/>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-outline-success btn-lg" id="search-button">Rechercher</button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="bookings-container" style="display: none">
+        <div class="row" id="bookings"></div>
     </div>
 </body>
 <script type="text/javascript" src="dist/bundle.js"></script>
