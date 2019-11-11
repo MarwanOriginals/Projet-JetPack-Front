@@ -22,7 +22,7 @@
             "image": "https://gamepedia.cursecdn.com/fortnite_gamepedia/e/e1/Jetpack_icon.png"
           },
           {
-            "id": "a8019ec0-bfdc-4140-9dbb-4927e5ef5c8d",
+            "id": "a8019ec0-bfdc-4140-9dbb-4927e5ef5c8f",
             "name": "Jetpack JackTalior",
             "image": "http://www.slate.fr/sites/default/files/styles/1060x523/public/backviewjetpack.jpg"
           }
@@ -50,10 +50,40 @@
       "is": {
         "headers": { "Access-Control-Allow-Origin": "*" },
         "body": {
-            "id": "a8019ec0-bfdc-4140-9dbb-4927e5ef5c8d",
+            "id": "e8019ec0-bfdc-4140-9dbb-4927e5ef5c8d",
             "name": "Le jetpack",
             "image": "Image 3"
           }
+      }
+    }
+  ]
+},
+
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "/bookings"
+      }
+    },
+    {
+      "matches": {
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "headers": { "Access-Control-Allow-Origin": "*" },
+        "body": [
+          {
+            "id": "a8059ec0-bfpc-4143-9daa-5938e5ff5c8d",
+            "jetpackId": "a8019ec0-bfdc-4140-9dbb-4927e5ef5c8d",
+            "startDate": "2019-09-10T00:00:00.000Z",
+            "endDate": "2019-09-15T00:00:00.000Z"
+          }
+        ]
       }
     }
   ]
